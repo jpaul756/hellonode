@@ -37,6 +37,6 @@ node {
     stage('Run image') {        
         /* This runs the actual image */
 
-        app.image("jp756/hellonode:latest").withRun("-p 8000:8000")
+        docker.image("jp756/hellonode:latest").withRun("-p 8000:8000")
     }
 }
