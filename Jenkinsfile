@@ -33,11 +33,4 @@ node {
             app.push("latest")
         }
     }
-    
-    stage('Run image') {
-        /* This runs the actual image; synonymous to
-         * docker run on the command line */
-
-        app = docker.image("jp756/hellonode:lastest").withRun('-p 8000:8000')
-    }
 }
