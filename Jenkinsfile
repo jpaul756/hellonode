@@ -1,4 +1,4 @@
-node('docker') {
+node {
      docker.withRegistry('https://registry.hub.docker.com', 'docker-hub-credentials') {
      
          git url: "https://github.com/jpaul756/hellonode", credentialsId: 'github-id'
