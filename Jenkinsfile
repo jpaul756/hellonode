@@ -1,5 +1,7 @@
 node {
 
+    def app
+    
     stage('Clone repository') {
         /* Let's make sure we have the repository cloned to our workspace */
 
@@ -10,13 +12,13 @@ node {
         /* This builds the actual image; synonymous to
          * docker build on the command line */
 
-        docker.build("jp756/hellonode")
+        app = docker.build("jp756/hellonode")
     }
      
     stage('Run image') {
         /* This runs the actual image */
 
-        docker.image("jp756/hellonode:latest").withRun('-p 8000:8000')
+        app.withRun('-p 8000:8000')
     }
 
     /* stage('Test image') {
