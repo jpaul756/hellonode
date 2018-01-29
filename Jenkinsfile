@@ -8,7 +8,7 @@ node {
          println commit_id
      
          stage "build"
-         def app = docker.build "hellonode"
+         def app = docker.build "jp756/hellonode"
          stage "publish"
          app.push 'master'
          app.push "${commit_id}"
