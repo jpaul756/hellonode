@@ -18,7 +18,8 @@ node {
     stage('Run image') {
         /* This runs the actual image */
 
-        app.withRun('-p 8000:8000')
+        sh 'docker rm -f hellonode || true'
+        sh 'docker run -d -p 8000:8000 --name hellonode jp756/hellonode:latest'
     }
 
     /* stage('Test image') {
